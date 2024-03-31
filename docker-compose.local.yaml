@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres_local
+      - POSTGRES_PASSWORD=postgres_local
+      - POSTGRES_DB=postgres_local
+    ports:
+      - 5432:5432
+    networks:
+      - service_network
+
+  postgres_db_test:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data_test:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres_test_local
+      - POSTGRES_PASSWORD=postgres_test_local
+      - POSTGRES_DB=postgres_test_local
+    ports:
+      - 5433:5432
+    networks:
+      - service_network
+
+  redis_local:
+    image: redis/redis-stack-server:7.2.0-v6
+    ports:
+      - 6379:6379
+    environment:
+      - REDIS_ARGS=--requirepass redis_local
+    volumes:
+      - redis_data_local:/data
+    networks:
+      - service_network
+
+  redis_test:
+    image: redis/redis-stack-server:7.2.0-v6
+    ports:
+      - 6380:6379
+    environment:
+      - REDIS_ARGS=--requirepass redis_test
+    volumes:
+      - redis_data_test:/data
+    networks:
+      - service_network
+
+volumes:
+  postgres_data_local:
+  postgres_data_test:
+  redis_data_local:
+  redis_data_test:
+
+
+networks:
+  service_network:
+    driver: bridge

@@ -1,0 +1,14 @@
+
+# Contains ipdb for debugging
+
+-r req.txt
+traitlets==5.14.0
+ipdb==0.13.13
+ipython==8.19.0
+prompt-toolkit==3.0.43
+Pygments==2.17.2
+decorator==5.1.1
+jedi==0.19.1
+matplotlib-inline==0.1.6
+pexpect==4.9.0
+cwidth==0.2.13
