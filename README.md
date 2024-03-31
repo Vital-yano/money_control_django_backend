@@ -1,6 +1,6 @@
 # Money_control_fastapi_backend
 
-![GitHub](https://img.shields.io/github/license/vital-yano/money_control_django_backend) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/kaccuteput/money_control_django_backend)
+![GitHub](https://img.shields.io/github/license/vital-yano/money_control_django_backend) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/vital-yano/money_control_django_backend)
 
 ### Описание
 Репозиторий содержить бэкенд с использованием фреймворка Django для приложения по контролю своих расходов. Управление осуществляется с помощью телеграмм бота.
